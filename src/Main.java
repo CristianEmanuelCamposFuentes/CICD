@@ -3,5 +3,7 @@ public class Main {
         System.out.println("A commit has been made!");
 
         System.out.println("Testing ...");
+
+        System.out.println("Testing Jenkins...");
     }
 }
