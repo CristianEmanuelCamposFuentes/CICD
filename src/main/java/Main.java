@@ -23,7 +23,7 @@ public class Main {
             }
         }
 
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= repeatCount; i++) {
             int randomNumber = ThreadLocalRandom.current().nextInt(1, 6); // Generate a random number between 1 (inclusive) and 6 (exclusive)
             System.out.println("Hello, I am " + name + " and I am printing the number " + i);
             try {

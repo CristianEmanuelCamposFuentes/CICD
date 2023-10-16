@@ -9,31 +9,31 @@ import static org.testng.Assert.*;
 public class MainTest {
     // Instancia que voy a testear
     private Main mainInstance;
-//    Para capturar la salida del método printExercise, debes redirigir la salida estándar (System.out)
+    //    Para capturar la salida del método printExercise, debes redirigir la salida estándar (System.out)
 //    a una instancia de ByteArrayOutputStream.
 //    Luego, puedes convertir este ByteArrayOutputStream a una cadena para realizar aserciones.
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
-    @BeforeSuite
-    public void setUpSuite() {
-        // Redirigir la salida estándar a un ByteArrayOutputStream antes de todas las pruebas
+    @BeforeMethod
+    public void setUp() {
+        // Redirigir la salida estándar a un ByteArrayOutputStream antes de cada prueba
         System.setOut(new PrintStream(outputStream));
-    }
-
-    @AfterSuite
-    public void tearDownSuite() {
-        // Restablecer la salida estándar original después de todas las pruebas
-        System.setOut(originalOut);
-    }
-    @BeforeTest
-    public void setup(){
         mainInstance = new Main();
     }
+
+    @AfterMethod
+    public void tearDown() {
+        // Restablecer la salida estándar original después de cada prueba
+        System.setOut(originalOut);
+        // Limpiar el contenidi del ByteArrayOutputStream
+        outputStream.reset();
+    }
+
     @Test
     public void testPrintExerciseWithValidName() {
         String name = "John";
-        String number = "5"; // You can set the desired value for NUMBER
+        String number = "5";
 
         mainInstance.printExercise(name, number);
 
@@ -52,18 +52,26 @@ public class MainTest {
         Assert.assertTrue(output.contains("I am John"));
 
         // Aserción 5: Puedes verificar si el número en la salida es igual al valor esperado.
-        Assert.assertTrue(output.contains("I am printing the number 66"));
+        Assert.assertTrue(output.contains("I am printing the number 15"));
 
     }
 
     @Test
     public void testPrintExerciseWithNullName() {
         String name = null;
-        String number = "5"; // You can set the desired value for NUMBER
+        String number = "5";
 
         mainInstance.printExercise(name, number);
 
-        // Add assertions here to verify the expected behavior when NAME is null.
+        // Aserción 1: Verifica si la salida contiene un mensaje específico para NAME nulo.
+        String output = outputStream.toString();
+        Assert.assertTrue(output.contains("Please set the NAME environment variable."));
+
+        // Aserción 2: Verifica que la cadena del nombre no esté presente en la salida.
+        Assert.assertFalse(output.contains("I am John"));
+
+        // Aserción 3: Verifica si la variable "number" es igual a "5".
+        Assert.assertEquals(number, "5");
     }
 
     @Test
@@ -73,6 +81,14 @@ public class MainTest {
 
         mainInstance.printExercise(name, number);
 
-        // Add assertions here to verify the expected behavior when NUMBER is invalid.
+        // Aserción 1: Verifica si la salida contiene un mensaje específico para NUMBER inválido.
+        String output = outputStream.toString();
+        Assert.assertTrue(output.contains("Invalid value for NUMBER environment variable. Using the default value of 15."));
+
+        // Aserción 2: Verifica que la cadena del nombre esté presente en la salida.
+        Assert.assertTrue(output.contains("I am " + name));
+
+        // Aserción 3: Verifica que el valor de "number" es igual al valor esperado ("invalid").
+        Assert.assertEquals(number, "invalid");
     }
 }
