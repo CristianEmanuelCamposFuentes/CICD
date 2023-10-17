@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-17T00:07:45 ART" name="Surefire suite" finished-at="2023-10-17T00:08:38 ART" duration-ms="52144">
+    <groups>
+    </groups>
+    <test started-at="2023-10-17T00:07:45 ART" name="Surefire test" finished-at="2023-10-17T00:08:38 ART" duration-ms="52144">
+      <class name="MainTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="setUp" finished-at="2023-10-17T00:07:45 ART" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testPrintExerciseWithInvalidNumber()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="testPrintExerciseWithInvalidNumber" finished-at="2023-10-17T00:07:45 ART" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrintExerciseWithInvalidNumber -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="tearDown" finished-at="2023-10-17T00:07:45 ART" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="setUp" finished-at="2023-10-17T00:07:45 ART" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testPrintExerciseWithNullName()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="testPrintExerciseWithNullName" finished-at="2023-10-17T00:07:45 ART" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrintExerciseWithNullName -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="setUp" finished-at="2023-10-17T00:07:45 ART" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="tearDown" finished-at="2023-10-17T00:07:45 ART" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testPrintExerciseWithValidName()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:07:45 ART" name="testPrintExerciseWithValidName" finished-at="2023-10-17T00:08:38 ART" duration-ms="52095" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrintExerciseWithValidName -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:MainTest@609cd4d8]" started-at="2023-10-17T00:08:38 ART" name="tearDown" finished-at="2023-10-17T00:08:38 ART" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- MainTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

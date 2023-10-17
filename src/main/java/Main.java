@@ -1,9 +1,14 @@
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
+    public static final Scanner scanner = new Scanner(System.in).useDelimiter("\n");
     public static void main(String[] args) {
-        String name = System.getenv("NAME");
-        String number = System.getenv("NUMBER");
+        System.out.println("Ingrese su nombre:");
+        String name = scanner.nextLine();
+
+        System.out.println("Ingrese un numero aleatorio (o presione enter si quiere un numero por defecto):");
+        String number = scanner.nextLine();
 
         printExercise(name, number);
     }
@@ -15,22 +20,25 @@ public class Main {
         }
 
         int repeatCount = 15;
-        if (number != null) {
+
+        if (!number.isEmpty()) {
             try {
                 repeatCount = Integer.parseInt(number);
             } catch (NumberFormatException e) {
-                System.out.println("Invalid value for NUMBER environment variable. Using the default value of 15.");
+                throw new NumberFormatException("Valor invalido para NUMERO. Utilizando valor por defecto (15)");
             }
         }
 
         for (int i = 1; i <= repeatCount; i++) {
-            int randomNumber = ThreadLocalRandom.current().nextInt(1, 6); // Generate a random number between 1 (inclusive) and 6 (exclusive)
-            System.out.println("Hello, I am " + name + " and I am printing the number " + i);
+            int randomNumber = ThreadLocalRandom.current().nextInt(1, 6);
+            String outputLine = "Hello, I am " + name + " and I am printing the number " + i;
+            System.out.println(outputLine); // Agrega esta línea para depurar
             try {
-                Thread.sleep(randomNumber * 1000); // Sleep for a random time between 1 and 5 seconds
+                Thread.sleep(randomNumber * 1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("Sleep complete");
         }
     }
 }
